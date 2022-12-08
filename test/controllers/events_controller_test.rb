@@ -15,9 +15,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     event = FactoryBot.create(:event, owner: event_owner)
     sign_in_as(FactoryBot.create(:user))
     assert_difference("Event.count", 0) do
-      assert_raises(ActiveRecord::RecordNotFound) do
-        delete event_url(event)
-      end
+      delete event_url(event)
     end
   end
 end
